@@ -3,12 +3,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {RouterModule} from '@angular/router';
 import {MenuItem} from '../menu-item/menu-item';
-export type MenuItemList = {
-  icon: string
-  label:string
-  route:string
-  subItems?:MenuItemList[]
-}
+import {MenuItemList, menuItems} from '../../menu-items';
+
 @Component({
   selector: 'app-custom-sidenav',
   imports: [
@@ -25,16 +21,5 @@ export class CustomSidenav {
   profilePicSize = computed(()=>this.collapsed()?'32':'80')
 
 
-  menuItems = signal<MenuItemList[]>([
-    {icon: 'home', label: 'Dashboard', route: 'dashboard'},
-    {
-      icon: 'video_library',
-      label: 'Contenido',
-      route: 'content',
-      subItems: [
-        {icon: 'play_circle', label: 'Videos', route: 'videos'},
-      ]
-    },
-    {icon: 'settings', label: 'Configuración', route: 'settings'},
-  ])
+  menuItems = signal<MenuItemList[]>(menuItems)
 }
