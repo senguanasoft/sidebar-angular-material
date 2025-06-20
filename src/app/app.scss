@@ -1,0 +1,31 @@
+
+
+mat-toolbar {
+  position: relative;
+  top: 0;
+  z-index: 5; /* Increase to ensure the toolbar is above most elements */
+  display: flex;
+  align-items: center; /* Vertically center all items in the toolbar */
+  padding: 0 16px; /* Adjust padding as needed */
+  color: var(--text-primary);
+
+  .toolbar-spacer {
+    flex: 1 1 auto; /* Spacer to push items apart */
+  }
+
+}
+
+.content {
+  padding: 24px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+mat-sidenav-container {
+  height: calc(100dvh - 64px - 16px)
+}
+
+mat-sidenav,
+mat-sidenav-content {
+  transition: all 500ms ease-in-out;
+}
