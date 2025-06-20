@@ -72,12 +72,6 @@
 
 <mat-nav-list>
   @for (item of menuItems(); track $index) {
-    <a mat-list-item class="menu-item" [routerLink]="item.route" routerLinkActive="menu-selected-item" #rla="routerLinkActive" [activated]="rla.isActive">
-      <mat-icon matListItemIcon [fontSet]="rla.isActive?'material-icons':'material-icons-outlined'">{{item.icon}}</mat-icon>
-      @if (!collapsed()) {
-        <span matListItemTitle>{{item.label}}</span>
-
-      }
-    </a>
+    <app-menu-item [item]="item" [collapsed]="collapsed()"/>
   }
 </mat-nav-list>
